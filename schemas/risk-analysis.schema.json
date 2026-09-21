@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://content-agent.local/schemas/ecommerce-risk-analysis.schema.json",
+  "title": "EcommerceRiskAnalysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "product_category",
+    "subject_type",
+    "human_present",
+    "age_class",
+    "adult_confirmed",
+    "real_person",
+    "public_figure",
+    "reference_image",
+    "likeness_consent",
+    "commercial_use_authorized",
+    "nudity_level",
+    "sexualization",
+    "pose",
+    "camera_focus",
+    "body_part_focus",
+    "setting",
+    "medical_claim",
+    "before_after",
+    "violence",
+    "self_harm",
+    "weapons",
+    "political_context",
+    "fraud_or_deception",
+    "brand_logo_ip",
+    "intended_use",
+    "platform",
+    "risk_flags",
+    "risk_tier",
+    "decision",
+    "reasons",
+    "rewrite_constraints"
+  ],
+  "properties": {
+    "product_category": {"type": "string"},
+    "subject_type": {"type": "string"},
+    "human_present": {"type": "boolean"},
+    "age_class": {
+      "type": "string",
+      "enum": ["none", "adult_verified", "adult_synthetic", "minor", "unknown"]
+    },
+    "adult_confirmed": {"type": "boolean"},
+    "real_person": {"type": "boolean"},
+    "public_figure": {"type": "boolean"},
+    "reference_image": {"type": "boolean"},
+    "likeness_consent": {
+      "type": "string",
+      "enum": ["verified", "not_applicable", "unknown", "denied"]
+    },
+    "commercial_use_authorized": {"type": "boolean"},
+    "nudity_level": {"type": "string"},
+    "sexualization": {"type": "string"},
+    "pose": {"type": "string"},
+    "camera_focus": {"type": "string"},
+    "body_part_focus": {"type": "string"},
+    "setting": {"type": "string"},
+    "medical_claim": {"type": "boolean"},
+    "before_after": {"type": "boolean"},
+    "violence": {"type": "boolean"},
+    "self_harm": {"type": "boolean"},
+    "weapons": {"type": "boolean"},
+    "political_context": {"type": "boolean"},
+    "fraud_or_deception": {"type": "boolean"},
+    "brand_logo_ip": {"type": "string"},
+    "intended_use": {"type": "string"},
+    "platform": {"type": "string"},
+    "risk_flags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "risk_tier": {
+      "type": "string",
+      "enum": ["R0", "R1", "R2", "R3", "R4"]
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["allow", "rewrite", "review", "product_only", "block"]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "rewrite_constraints": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
